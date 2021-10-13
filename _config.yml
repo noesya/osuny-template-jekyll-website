@@ -1,7 +1,11 @@
-title: Template
+title: Template website
+description: Lorem ipsum description
+lang: fr
 
 exclude:
   - README.md
+  - package.json
+  - yarn.lock
 
 defaults:
   -
@@ -9,10 +13,27 @@ defaults:
       path: ""
     values:
       layout: "default"
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
 
 collections:
   pages:
     output: true
+
+paginate: 8
+
+plugins:
+  - jekyll-minifier
 
 sass:
     style: compressed

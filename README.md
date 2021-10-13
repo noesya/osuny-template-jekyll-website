@@ -1,6 +1,6 @@
-# Osuny Template
+# Osuny Template Website
 
-Ce template Jekyll est la base de tous les sites Osuny.
+Ce template Jekyll est le template des websites.
 
 ## Installation
 
