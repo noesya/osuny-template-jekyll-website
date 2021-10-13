@@ -1,9 +1,13 @@
+{% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
-      <a href="/">Home</a>
+      {% if crumbs > 1 %}
+        <a href="/">{{ trad.home }}</a>
+      {% else %}
+        {{ trad.home }}
+      {% endif %}
     </li>
-    {% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
     {% for crumb in crumbs offset: 1 %}
       {% if forloop.last %}
         <li class="breadcrumb-item active" aria-current="page">{{ page.title }}</li>

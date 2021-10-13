@@ -4,13 +4,11 @@ permalink: actualites
 layout: page
 ---
 
-<div class="container">
-  <div class="row row-cols-md-2">
-    {% for post in site.posts %}
-      <div class="col">
-        {% include post.html %}
-      </div>
-    {% endfor %}
-  </div>
-  {% include pagination.html %}
+<div class="row row-cols-md-2">
+  {% for post in site.posts %}
+    <div class="col">
+      {% include post.html %}
+    </div>
+  {% endfor %}
 </div>
+{% include pagination.html %}
