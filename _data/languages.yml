@@ -1,0 +1,18 @@
+fr:
+  author: "Author"
+  category: "Categorie"
+  date: "Date"
+  previous: "Précédent"
+  more: "Lire la suite"
+  next: "Suivant"
+  news:
+    infos: "Informations sur l’article"
+    more: "Voir toutes les actualités"
+    next: "Article suivant"
+    previous: "Article précédent"
+    title: "Actualités"
+  share: "Partager sur"
+en:
+  previous: "Previous"
+  next: "Next"
+  more: "Read more"
