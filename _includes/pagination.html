@@ -1,15 +1,17 @@
 {% assign lang = page.lang | default: site.lang %}
+{% assign trad = site.data.languages[lang] %}
+
 {% if paginator.total_pages > 1 %}
-<nav aria-label="Page navigation example">
-  <ul class="pagination">
+<nav aria-label="{{ trad.pagination }}">
+  <ul class="pagination justify-content-center">
 
     {% if paginator.previous_page %}
       <li class="page-item">
-        <a class="page-link" href="{{ paginator.previous_page_path }}">{{ site.data.t[lang].previous }}</a>
+        <a class="page-link" href="{{ paginator.previous_page_path }}">{{ trad.previous }}</a>
       </li>
     {% else %}
       <li class="page-item disabled">
-        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">{{ site.data.t[lang].previous }}</a>
+        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">{{ trad.previous }}</a>
       </li>
     {% endif %}
 
@@ -31,11 +33,11 @@
 
     {% if paginator.next_page %}
       <li class="page-item">
-        <a class="page-link" href="{{ paginator.next_page_path }}">{{ site.data.t[lang].next }}</a>
+        <a class="page-link" href="{{ paginator.next_page_path }}">{{ trad.next }}</a>
       </li>
     {% else %}
       <li class="page-item disabled">
-        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">{{ site.data.t[lang].next }}</a>
+        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">{{ trad.next }}</a>
       </li>
     {% endif %}
 

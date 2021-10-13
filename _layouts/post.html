@@ -57,16 +57,7 @@ layout: default
         <div class="e-content">
           {{ content }}
         </div>
-        <nav aria-label="{{ trad.news.navigation }}">
-          <ol>
-            <li>
-              <a href="{{ page.previous.url | relative_url }}" title="{{ page.previous.title | markdownify | strip_html }}">{{ trad.news.previous }}</a>
-            </li>
-            <li>
-              <a href="{{ page.next.url | relative_url }}" title="{{ page.next.title | markdownify | strip_html }}">{{ trad.news.next }}</a>
-            </li>
-          </ol>
-        </nav>
+        {% include post-pagination.html %}
       </div>
     </div>
 
