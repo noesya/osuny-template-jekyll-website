@@ -8,8 +8,11 @@ gem 'jekyll'
 # https://github.com/digitalsparky/jekyll-minifier
 # Paginate
 # https://github.com/jekyll/jekyll-paginate
+# Sitemap
+# https://github.com/jekyll/jekyll-sitemap
 group :jekyll_plugins do
     gem 'jekyll_picture_tag'
     gem 'jekyll-minifier'
     gem 'jekyll-paginate'
+    gem 'jekyll-sitemap'
 end
