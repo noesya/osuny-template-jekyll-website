@@ -2,7 +2,6 @@
 title: Lorem ipsum 2
 date: 2021-10-14 10:00
 author: "Sébastien M."
-image: /assets/images/uploads/lorem.jpg
 ---
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc suscipit purus vel tellus blandit ornare. In non diam rutrum, accumsan arcu nec, sodales ipsum. Duis rhoncus nibh in leo consequat, non rutrum odio mollis. Aenean euismod erat in nibh fringilla, sit amet auctor sem rutrum.
 

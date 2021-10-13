@@ -1,49 +1,66 @@
 ---
-layout: page
+layout: default
 ---
 
 {% assign lang = page.lang | default: site.lang %}
 {% assign trad = site.data.languages[lang] %}
 
-<div class="row">
-  <div class="col-md-3">
-    <table class="table" aria-label="{{ lang.news.infos }}">
-      <tr>
-        <th scope="row">{{ trad.date }}</th>
-        <td><time datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%d/%m/%Y" }}</time></td>
-      </tr>
-      <tr>
-        <th scope="row">{{ trad.author }}</th>
-        <td>{{ page.author }}</td>
-      </tr>
-      <tr>
-        <th scope="row">{{ trad.category }}</th>
-        <td>{{ page.category }}</td>
-      </tr>
-      <tr>
-        <th scope="row">{{ trad.share }}</th>
-        <td><a href="#">Facebook</a></td>
-      </tr>
-      <tr>
-        <th scope="row">{{ trad.share }}</th>
-        <td><a href="#">Twitter</a></td>
-      </tr>
-    </table>
+<article itemscope itemtype="https://schema.org/Article">
+  {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">{% endif %}
+  {% if page.last_modified_at %}<meta itemprop="dateModified" content="{{ page.last_modified_at | date_to_xmlschema }}">{% endif %}
+  {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+
+  <div class="container">
+
+    <header class="hero">
+        <h1 itemprop="headline">{{ page.title }}</h1>
+        {% include breadcrumb.html %}
+    </header>
+
+    <div class="row">
+      <div class="col-md-3">
+        <table class="table" aria-label="{{ lang.news.infos }}">
+          <tr>
+            <th scope="row">{{ trad.date }}</th>
+            <td><time datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%d/%m/%Y" }}</time></td>
+          </tr>
+          <tr>
+            <th scope="row">{{ trad.author }}</th>
+            <td class="p-author">{{ page.author }}</td>
+          </tr>
+          <tr>
+            <th scope="row">{{ trad.category }}</th>
+            <td class="p-category">{{ page.category }}</td>
+          </tr>
+          <tr>
+            <th scope="row">{{ trad.share }}</th>
+            <td><a href="{{ 'https://www.facebook.com/sharer/sharer.php?u=' | append: page.url }}" target="_blank" rel="noreferrer">Facebook</a></td>
+          </tr>
+          <tr>
+            <th scope="row">{{ trad.share }}</th>
+            <td><a href="{{ 'https://twitter.com/intent/tweet?text=' | append: page.title | append: ' ' | append: page.url }}" target="_blank" rel="noreferrer">Twitter</a></td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-8 offset-md-1">
+        {%- if page.image -%}
+          {% picture {{ page.image }} --alt {{ page.title }} --img class="img-fluid" %}
+        {%- endif -%}
+        <div class="e-content">
+          {{ content }}
+        </div>
+        <nav aria-label="{{ trad.news.navigation }}">
+          <ol>
+            <li>
+              <a href="{{ page.previous.url | relative_url }}" title="{{ page.previous.title | markdownify | strip_html }}">{{ trad.news.previous }}</a>
+            </li>
+            <li>
+              <a href="{{ page.next.url | relative_url }}" title="{{ page.next.title | markdownify | strip_html }}">{{ trad.news.next }}</a>
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
   </div>
-  <div class="col-md-8 offset-md-1">
-    {%- if page.image -%}
-      {% picture {{ page.image }} --alt {{ page.title }} --img class="img-fluid" %}
-    {%- endif -%}
-    {{ content }}
-    <nav aria-label="{{ trad.news.navigation }}">
-      <ol>
-        <li>
-          <a href="#">{{ trad.news.previous }}</a>
-        </li>
-        <li>
-          <a href="#">{{ trad.news.next }}</a>
-        </li>
-      </ol>
-    </nav>
-  </div>
-</div>
+</article>
