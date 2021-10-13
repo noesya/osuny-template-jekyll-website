@@ -22,7 +22,15 @@ layout: default
         <table class="table" aria-label="{{ lang.news.infos }}">
           <tr>
             <th scope="row">{{ trad.date }}</th>
-            <td><time datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%d/%m/%Y" }}</time></td>
+            <td>
+              <time datetime="{{ page.date | date: "%Y-%m-%d" }}">
+                {% if lang == 'fr' %}
+                  {{ page.date | date: "%d/%m/%Y" }}
+                {% else %}
+                  {{ page.date | date: "%Y/%m/%d" }}
+                {% endif %}
+              </time>
+            </td>
           </tr>
           <tr>
             <th scope="row">{{ trad.author }}</th>
