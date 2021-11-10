@@ -1,12 +1,12 @@
 primary:
   - title: À propos
-    url: /a-propos
+    target: /a-propos
   - title: Actualités
-    url: /actualites
+    target: /actualites
 legal:
   - title: Mentions légales
-    url: /mentions-legales
+    target: /mentions-legales
   - title: Politique de confidentialité
-    url: /politique-de-confidentialite
+    target: /politique-de-confidentialite
   - title: Gestion des cookies
-    url: /gestion-des-cookies
+    target: /gestion-des-cookies
