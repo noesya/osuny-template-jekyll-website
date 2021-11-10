@@ -8,14 +8,14 @@
         <ul class="nav flex-column">
         {% for item in site.data.menus.primary %}
           <li class="nav-item">
-            <a href="{{ item.url }}" class="nav-link">{{ item.title }}</a>
+            <a href="{{ item.target }}" class="nav-link">{{ item.title }}</a>
           </li>
         {% endfor %}
         </ul>
         <ul class="nav flex-column">
         {% for item in site.data.menus.legal %}
           <li class="nav-item">
-            <a href="{{ item.url }}" class="nav-link">{{ item.title }}</a>
+            <a href="{{ item.target }}" class="nav-link">{{ item.title }}</a>
           </li>
         {% endfor %}
         </ul>
